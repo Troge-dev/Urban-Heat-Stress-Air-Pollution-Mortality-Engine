@@ -1,0 +1,17 @@
+target,model,rmse,mae,r2
+rate_cardiorespiratory_per_100k,LightGBM,1.7723,1.3032,0.0061
+rate_cardiorespiratory_per_100k,XGBoost,1.7975,1.3213,-0.0223
+rate_cardiorespiratory_per_100k,RandomForest,1.8963,1.3763,-0.1378
+rate_cardiorespiratory_per_100k,Ridge,1.7932,1.3291,-0.0174
+rate_ihd_per_100k,LightGBM,1.6531,1.2131,-0.0404
+rate_ihd_per_100k,XGBoost,1.6595,1.2255,-0.0486
+rate_ihd_per_100k,RandomForest,1.6537,1.2069,-0.0412
+rate_ihd_per_100k,Ridge,1.6723,1.2349,-0.0647
+rate_hhd_per_100k,LightGBM,0.5593,0.4247,-0.1715
+rate_hhd_per_100k,XGBoost,0.591,0.4493,-0.308
+rate_hhd_per_100k,RandomForest,0.5722,0.444,-0.2259
+rate_hhd_per_100k,Ridge,0.517,0.3884,-0.0011
+rate_asthma_per_100k,LightGBM,0.2114,0.1398,0.0185
+rate_asthma_per_100k,XGBoost,0.2144,0.1459,-0.0087
+rate_asthma_per_100k,RandomForest,0.2127,0.1458,0.0066
+rate_asthma_per_100k,Ridge,0.2096,0.1477,0.0356

@@ -1,0 +1,246 @@
+{
+  "test_metadata": {
+    "test_period": "2018-01-01 to 2021-12-27",
+    "test_records_count": 2508,
+    "study_cities_count": 12,
+    "study_cities": [
+      "Dagupan City",
+      "Palayan City",
+      "Legazpi City",
+      "Iloilo City",
+      "Mandaue City",
+      "Tacloban City",
+      "Zamboanga City",
+      "Cagayan de Oro City",
+      "Davao City",
+      "City of Mandaluyong",
+      "City of Navotas",
+      "City of Muntinlupa"
+    ]
+  },
+  "endpoint_benchmarks": {
+    "rate_cardiorespiratory_per_100k": {
+      "LightGBM": {
+        "rmse": 1.7723080254705539,
+        "mae": 1.3031915867883768,
+        "median_ae": 0.9863276939788337,
+        "r2": 0.006137975351977576,
+        "pearson_r": 0.34088481599589726,
+        "pearson_p": 2.808901929005414e-69,
+        "spearman_rho": 0.3408801810440928,
+        "spearman_p": 2.8215521273968934e-69
+      },
+      "XGBoost": {
+        "rmse": 1.7974791297459853,
+        "mae": 1.3212998408431713,
+        "median_ae": 0.9946391139435495,
+        "r2": -0.022293034100749898,
+        "pearson_r": 0.31399575818581066,
+        "pearson_p": 1.6581780043745457e-58,
+        "spearman_rho": 0.30432598040231384,
+        "spearman_p": 6.771339700946411e-55
+      },
+      "observed_distribution": {
+        "mean": 3.2183666129145685,
+        "std": 1.7781269112971034,
+        "min": 0.0,
+        "max": 13.84976561424028
+      }
+    },
+    "rate_ihd_per_100k": {
+      "LightGBM": {
+        "rmse": 1.6530616154153839,
+        "mae": 1.2131022370991222,
+        "median_ae": 0.9175511648225738,
+        "r2": -0.04037112876437643,
+        "pearson_r": 0.35239262727313847,
+        "pearson_p": 3.159612833145242e-74,
+        "spearman_rho": 0.3477083573507274,
+        "spearman_p": 3.461177346158673e-72
+      },
+      "XGBoost": {
+        "rmse": 1.6595475461461728,
+        "mae": 1.225519922807169,
+        "median_ae": 0.9330417821954351,
+        "r2": -0.04855111764444153,
+        "pearson_r": 0.3643828696225771,
+        "pearson_p": 1.3150254613059503e-79,
+        "spearman_rho": 0.34853726440062194,
+        "spearman_p": 1.5164717427923044e-72
+      },
+      "observed_distribution": {
+        "mean": 2.6827277279488113,
+        "std": 1.6209943265956361,
+        "min": 0.0,
+        "max": 12.247313394410826
+      }
+    },
+    "rate_hhd_per_100k": {
+      "LightGBM": {
+        "rmse": 0.5593242844314497,
+        "mae": 0.42473933646881096,
+        "median_ae": 0.330286530808299,
+        "r2": -0.17146864888331548,
+        "pearson_r": 0.15040311986187604,
+        "pearson_p": 3.6885330180195725e-14,
+        "spearman_rho": 0.11248443745309335,
+        "spearman_p": 1.6200555931854295e-08
+      },
+      "XGBoost": {
+        "rmse": 0.5910170103743295,
+        "mae": 0.44934133947629795,
+        "median_ae": 0.3501509973855631,
+        "r2": -0.307986556873852,
+        "pearson_r": 0.19831300194315643,
+        "pearson_p": 1.1682568848614672e-23,
+        "spearman_rho": 0.1584625875760365,
+        "spearman_p": 1.4360392200716732e-15
+      },
+      "observed_distribution": {
+        "mean": 0.4253619263598072,
+        "std": 0.5168743010247568,
+        "min": 0.0,
+        "max": 5.208261438245063
+      }
+    },
+    "rate_asthma_per_100k": {
+      "LightGBM": {
+        "rmse": 0.211445794367695,
+        "mae": 0.13977619079425732,
+        "median_ae": 0.0963020633450738,
+        "r2": 0.018456940915323128,
+        "pearson_r": 0.19077333759695028,
+        "pearson_p": 5.536346817824686e-22,
+        "spearman_rho": 0.1956555422145813,
+        "spearman_p": 4.634530705585509e-23
+      },
+      "XGBoost": {
+        "rmse": 0.2143522093684847,
+        "mae": 0.1459378715920956,
+        "median_ae": 0.10060581937432289,
+        "r2": -0.00871198694863784,
+        "pearson_r": 0.18128168612108803,
+        "pearson_p": 5.695498295829216e-20,
+        "spearman_rho": 0.17823554206219921,
+        "spearman_p": 2.390920775257373e-19
+      },
+      "observed_distribution": {
+        "mean": 0.11027695860595027,
+        "std": 0.2134671109644604,
+        "min": 0.0,
+        "max": 2.3296106934371177
+      }
+    }
+  },
+  "residual_diagnostics": {
+    "skewness": 1.072038176513349,
+    "excess_kurtosis": 3.250417593036489,
+    "jarque_bera_stat": 1584.4580443882212,
+    "jarque_bera_p": 0.0,
+    "durbin_watson": 0.7791977266594676,
+    "corr_heat_index": 0.005302880030798906,
+    "corr_pm25": 0.05431413026913198
+  },
+  "scenario_stress_testing_summary": {
+    "1. Baseline Normal (HI=28\u00b0C, PM2.5=15)": {
+      "mean_simulated_rate_per_100k": 2.6467030607249575,
+      "mean_excess_rate_per_100k": 0.0,
+      "mean_pct_increase": 0.0,
+      "max_pct_increase_city": "Dagupan City",
+      "max_pct_increase_val": 0.0
+    },
+    "2. Isolated Heatwave (HI=42\u00b0C Danger)": {
+      "mean_simulated_rate_per_100k": 2.837804557921278,
+      "mean_excess_rate_per_100k": 0.19110149719632016,
+      "mean_pct_increase": 8.657534494660968,
+      "max_pct_increase_city": "Palayan City",
+      "max_pct_increase_val": 39.957815993704784
+    },
+    "3. Isolated PM2.5 Inversion (55 \u00b5g/m\u00b3)": {
+      "mean_simulated_rate_per_100k": 2.6878864930617823,
+      "mean_excess_rate_per_100k": 0.0411834323368252,
+      "mean_pct_increase": 2.0528620499635406,
+      "max_pct_increase_city": "Palayan City",
+      "max_pct_increase_val": 9.866682880774777
+    },
+    "4. Compound Extreme Hazard (HI=42\u00b0C + PM2.5=55)": {
+      "mean_simulated_rate_per_100k": 2.831196677166623,
+      "mean_excess_rate_per_100k": 0.18449361644166515,
+      "mean_pct_increase": 8.780252913864132,
+      "max_pct_increase_city": "Palayan City",
+      "max_pct_increase_val": 44.57801476788198
+    }
+  },
+  "calibration_summary": [
+    {
+      "risk_decile": 1,
+      "bin_pred_mean": 1.2539211245198008,
+      "bin_actual_mean": 1.5136839303590859,
+      "sample_count": 251,
+      "calibration_error": -0.2597628058392851
+    },
+    {
+      "risk_decile": 2,
+      "bin_pred_mean": 1.833573637090495,
+      "bin_actual_mean": 3.275851436730263,
+      "sample_count": 251,
+      "calibration_error": -1.442277799639768
+    },
+    {
+      "risk_decile": 3,
+      "bin_pred_mean": 2.083771887433533,
+      "bin_actual_mean": 2.7216487641527674,
+      "sample_count": 251,
+      "calibration_error": -0.6378768767192344
+    },
+    {
+      "risk_decile": 4,
+      "bin_pred_mean": 2.3670475098282253,
+      "bin_actual_mean": 3.059367526284086,
+      "sample_count": 250,
+      "calibration_error": -0.6923200164558607
+    },
+    {
+      "risk_decile": 5,
+      "bin_pred_mean": 2.6157460193234465,
+      "bin_actual_mean": 3.34856702716947,
+      "sample_count": 251,
+      "calibration_error": -0.7328210078460233
+    },
+    {
+      "risk_decile": 6,
+      "bin_pred_mean": 2.759951886766123,
+      "bin_actual_mean": 3.561487346508177,
+      "sample_count": 251,
+      "calibration_error": -0.8015354597420541
+    },
+    {
+      "risk_decile": 7,
+      "bin_pred_mean": 2.9679827218814054,
+      "bin_actual_mean": 3.436790832966423,
+      "sample_count": 250,
+      "calibration_error": -0.46880811108501774
+    },
+    {
+      "risk_decile": 8,
+      "bin_pred_mean": 3.2793455704017003,
+      "bin_actual_mean": 3.436689797545176,
+      "sample_count": 251,
+      "calibration_error": -0.15734422714347573
+    },
+    {
+      "risk_decile": 9,
+      "bin_pred_mean": 3.505778579803786,
+      "bin_actual_mean": 3.542860530912859,
+      "sample_count": 251,
+      "calibration_error": -0.037081951109072975
+    },
+    {
+      "risk_decile": 10,
+      "bin_pred_mean": 3.8385550237930626,
+      "bin_actual_mean": 4.2869556900369865,
+      "sample_count": 251,
+      "calibration_error": -0.44840066624392394
+    }
+  ]
+}
