@@ -1,10 +1,21 @@
-# 🌍 Project CCHAIN: Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine
-### *Spatial-Temporal AI & Epidemiological Decision-Support Engine for Philippine Metropolitan Resilience*
+# 🌡️ Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine
 
-> **🎓 Academic Attribution:** Developed in partial fulfillment of the course requirements for **Data Mining — Laboratory Activity 1**.  
-> **📊 Data Foundation:** Powered by the **Project CCHAIN** (*Climate Change, Health, and Artificial Intelligence in the Philippines*) multi-modal datasets.
+> ### A Spatial-Temporal Climate Surveillance & Machine Learning Decision-Support Engine for Philippine Local Government Units (LGUs)
+> *Developed for the City Health Offices (CHOs), City Disaster Risk Reduction and Management Offices (CDRRMOs), and the Department of Health (DOH)*  
+> *Pilot Coverage: 12 Major Philippine Metropolitan Cities (879 Barangays | 2006–2021 Longitudinal Surveillance Dataset)*  
+>  
+> 🎓 **Academic Fulfillment:** Data Mining Course — Laboratory Activity 1  
+> 🌐 **Primary Dataset Source:** Project CCHAIN (*Climate Change and Health Analytics Network* | Kaggle: [`thinkdatasci/project-cchain`](https://www.kaggle.com/datasets/thinkdatasci/project-cchain))
 
 ---
+
+> [!IMPORTANT]
+> ### Course & Data Attribution Notice:
+> * **Academic Requirement:** This repository and comprehensive surveillance and predictive modeling pipeline are submitted in partial fulfillment of **Data Mining Course — Laboratory Activity 1**.
+> * **Data Provenance:** All primary epidemiological, meteorological, morphological, and demographic datasets utilized in this system originate from **Project CCHAIN** (*Climate Change and Health Analytics Network*), an open-access multi-partner initiative by Thinking Machines, EpiMetrics, Manila Observatory, and PACSII (funded by the Wellcome Trust & Lacuna Fund). The 35 raw CCHAIN multi-source tabular tables were localized, filtered, spatialized, and engineered across 879 barangays and 12 major Philippine metropolitan cities spanning 2006–2021.
+
+---
+
 
 ## 📌 Project Overview
 
