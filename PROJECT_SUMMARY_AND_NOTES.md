@@ -32,6 +32,7 @@ The modeling engine implements a comprehensive **4-Stage Analytics Paradigm (Des
 ```
 Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine/
 ├── README.md                          # Comprehensive project documentation
+├── COMPREHENSIVE_OVERVIEW_AND_DEFENSE_GUIDE.md # Plain-English intuition & oral defense cheat-sheet
 ├── PROJECT_SUMMARY_AND_NOTES.md       # 4-stage analytics report & LGU action matrix
 ├── requirements.txt                   # Pinned dependency environment
 ├── run_pipeline.py                    # Master CLI pipeline orchestrator

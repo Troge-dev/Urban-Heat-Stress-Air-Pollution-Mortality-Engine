@@ -281,6 +281,7 @@ After executing the pipeline, generated assets are saved across the following di
 ```
 Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine/
 ├── README.md                          # Comprehensive project documentation & operational guide
+├── COMPREHENSIVE_OVERVIEW_AND_DEFENSE_GUIDE.md # Intuitive plain-English guide & oral defense cheat-sheet
 ├── PROJECT_SUMMARY_AND_NOTES.md       # In-depth 4-stage analytics report & LGU action framework
 ├── requirements.txt                   # Pinned dependency environment
 ├── run_pipeline.py                    # Master CLI pipeline orchestrator
