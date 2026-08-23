@@ -4,15 +4,6 @@
 > **🎓 Academic Attribution:** Developed in partial fulfillment of the course requirements for **Data Mining — Laboratory Activity 1**.  
 > **📊 Data Foundation:** Powered by the **Project CCHAIN** (*Climate Change, Health, and Artificial Intelligence in the Philippines*) multi-modal datasets.
 
-[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python)](https://www.python.org/)
-[![Project CCHAIN](https://img.shields.io/badge/Dataset-Project%20CCHAIN-blueviolet.svg)](https://cchain.ph/)
-[![Data Mining Lab 1](https://img.shields.io/badge/Coursework-Data%20Mining%20Lab%201-orange.svg)]()
-[![LightGBM](https://img.shields.io/badge/LightGBM-4.7.0-brightgreen.svg)](https://lightgbm.readthedocs.io/)
-[![XGBoost](https://img.shields.io/badge/XGBoost-3.4.1-orange.svg)](https://xgboost.readthedocs.io/)
-[![pyGAM](https://img.shields.io/badge/pyGAM-Splines-purple.svg)](https://pygam.readthedocs.io/)
-[![SHAP](https://img.shields.io/badge/TreeSHAP-Explainability-red.svg)](https://shap.readthedocs.io/)
-[![Streamlit](https://img.shields.io/badge/Streamlit-App-FF4B4B.svg?logo=streamlit)](https://streamlit.io/)
-
 ---
 
 ## 📌 Project Overview
