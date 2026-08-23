@@ -180,24 +180,64 @@ To bridge advanced predictive data science with frontline municipal governance, 
 
 ## 📜 Reproducibility & Execution Guide
 
-### 1. Data Pipeline Execution
+### 1. Environment Setup
 ```bash
-# Ingest raw data, perform population-weighted spatial rollup, and engineer lag features:
+# Clone repository and navigate to root directory
+git clone <repo-url>
+cd "Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine"
+
+# Create and activate virtual environment
+python -m venv .venv
+# Windows (PowerShell): .venv\Scripts\Activate.ps1
+# Linux / macOS: source .venv/bin/activate
+
+# Install all dependencies
+pip install -r requirements.txt
+```
+
+### 2. Master One-Command Pipeline Runner
+```bash
+# Run full end-to-end pipeline (ETL -> Training -> Testing & Stress Simulations):
+python run_pipeline.py --raw_dir ../cchain_raw
+
+# Stage-specific runs:
+python run_pipeline.py --data_only   # Stage 1 only
+python run_pipeline.py --train_only  # Stage 2 only
+python run_pipeline.py --test_only   # Stage 3 only
+```
+
+### 3. Modular Stage-by-Stage Script Execution
+```bash
+# Stage 1: Spatial Ingestion, Population Rollup, and Feature Engineering
 python src/data_processing.py ../cchain_raw
-```
 
-### 2. Model Training & Explainability Pipeline
-```bash
-# Execute Out-of-Time CV, train LightGBM/XGBoost/GAM models, and generate SHAP plots:
+# Stage 2: Model Training, Spline Fitting & TreeSHAP Explainability
 python src/train_model.py
+
+# Stage 3: Model Diagnostics, Calibration & Counterfactual Stress Testing
+python src/test_model.py
 ```
 
-### 3. Interactive Exploration
-Launch Jupyter Notebook to view interactive step-by-step transformations and visualizations:
+### 4. Automated Test Suite Execution
 ```bash
-jupyter notebook src/data_processing.ipynb
+# Run 15-point automated validation test suite:
+python -m unittest tests/test_cchain_engine.py -v
+# Or:
+pytest tests/test_cchain_engine.py -v
 ```
+
+### 5. Interactive Jupyter Notebooks
+* [src/data_processing.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/Urban%20Heat%20Stress,%20Air%20Pollution%20&%20Excess%20Cardiorespiratory%20Mortality%20Modeling%20Engine/src/data_processing.ipynb) — Step-by-step spatial rollup & lag transformations
+* [src/train_model.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/Urban%20Heat%20Stress,%20Air%20Pollution%20&%20Excess%20Cardiorespiratory%20Mortality%20Modeling%20Engine/src/train_model.ipynb) — Interactive model training, splines & SHAP explainability
+* [src/test_model.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/Urban%20Heat%20Stress,%20Air%20Pollution%20&%20Excess%20Cardiorespiratory%20Mortality%20Modeling%20Engine/src/test_model.ipynb) — Interactive residual diagnostics, decile calibration & stress lab
+
+### 6. Interactive Streamlit Heat-Health Early Warning System (EWS)
+```bash
+streamlit run src/app.py
+```
+*Launches the frontline LGU Heat-Health Early Warning System and Scenario Stress Lab at `http://localhost:8501`.*
 
 ---
 
 *Project CCHAIN — Advanced AI for Planetary Health and Climate Resilience in the Philippines.*
+

@@ -134,51 +134,145 @@ $$\text{Compound Heatwave}_{\text{Days} \times \text{PM2.5}} = \text{Extreme Hea
 ## 🚀 Quickstart & Execution Guide
 
 ### 1. Installation & Environment Setup
+
 ```bash
+# Clone repository and navigate to root directory
 git clone <repo-url>
-cd proj2
+cd "Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine"
 
 # Create and activate virtual environment
+# On Windows (PowerShell):
 python -m venv .venv
-source .venv/bin/activate  # Linux/Mac
-.venv\Scripts\activate     # Windows
+.venv\Scripts\Activate.ps1
 
-# Install pinned dependencies
+# On Windows (CMD):
+python -m venv .venv
+.venv\Scripts\activate.bat
+
+# On Linux / macOS:
+python3 -m venv .venv
+source .venv/bin/activate
+
+# Install all pinned dependencies (including modeling, dashboard & test suite)
 pip install -r requirements.txt
 ```
 
-### 2. Master One-Command Pipeline Execution
-```bash
-# Execute ETL, Model Training, and Stress Testing:
-python run_pipeline.py --raw_dir ../cchain_raw
-```
+---
 
-### 3. Interactive Jupyter Notebooks (with Markdown Titles & Explanations)
-Open and run any of the narrative notebooks:
-* [src/data_processing.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/proj2/src/data_processing.ipynb) — Spatial Rollup & Lag Feature Pipeline
-* [src/train_model.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/proj2/src/train_model.ipynb) — GAM Splines, LightGBM/XGBoost & TreeSHAP
-* [src/test_model.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/proj2/src/test_model.ipynb) — Residual Diagnostics, Decile Calibration & Stress Testing
+### 2. Execution Options & Workflows
+
+The engine provides **5 flexible execution modalities** to accommodate batch CLI pipelines, stage-specific runs, automated unit testing, narrative interactive notebooks, and frontline LGU decision dashboards:
+
+#### Option A: Master One-Command End-to-End Pipeline (CLI)
+Executes all 3 stages in sequence (Data Processing $\to$ Model Training $\to$ Testing & Stress Simulation):
 
 ```bash
-jupyter notebook src/data_processing.ipynb
+# Run full end-to-end pipeline with default raw data path (../cchain_raw):
+python run_pipeline.py
+
+# Or specify a custom raw data path:
+python run_pipeline.py --raw_dir data/cchain_raw
 ```
 
-### 4. Launch Interactive Streamlit Intelligence Dashboard
+**Stage-Specific CLI Flags:**
+```bash
+# Run only Stage 1 (ETL, Spatial Rollup & Lag Engineering):
+python run_pipeline.py --data_only --raw_dir ../cchain_raw
+
+# Run only Stage 2 (GAM Splines, LightGBM/XGBoost Training & SHAP):
+python run_pipeline.py --train_only
+
+# Run only Stage 3 (Residual Diagnostics, Decile Calibration & Stress Scenarios):
+python run_pipeline.py --test_only
+```
+
+---
+
+#### Option B: Modular Stage-by-Stage Script Execution
+Each pipeline stage can also be executed independently via its dedicated module in `src/`:
+
+```bash
+# 1. Spatial Ingestion, Population Rollup, and Feature Engineering
+python src/data_processing.py ../cchain_raw
+
+# 2. Dual Epidemiological GAM & Predictive Machine Learning Suite
+python src/train_model.py
+
+# 3. Model Diagnostics, Counterfactual Stress Testing, and Reporting
+python src/test_model.py
+```
+
+---
+
+#### Option C: Automated Verification & Unit Test Suite
+Run the comprehensive test suite to validate dataset schema, geographic bounds, model serialization, risk calibrations, and counterfactual stress simulations:
+
+```bash
+# Run via Python standard unittest:
+python -m unittest tests/test_cchain_engine.py -v
+
+# Or run via pytest:
+pytest tests/test_cchain_engine.py -v
+```
+
+---
+
+#### Option D: Interactive Step-by-Step Jupyter Notebooks
+Each stage is mirrored as a narrative, self-contained Jupyter Notebook with rich Markdown explanations, inline equations, and step-by-step visualizations:
+
+* [src/data_processing.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/Urban%20Heat%20Stress,%20Air%20Pollution%20&%20Excess%20Cardiorespiratory%20Mortality%20Modeling%20Engine/src/data_processing.ipynb) — Ingests raw data, performs population-weighted spatial aggregation ($\text{adm4} \to \text{adm3}$), computes UHI/SEVI indices, and generates 0–14 day lag structures.
+* [src/train_model.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/Urban%20Heat%20Stress,%20Air%20Pollution%20&%20Excess%20Cardiorespiratory%20Mortality%20Modeling%20Engine/src/train_model.ipynb) — Fits non-linear GAM cubic splines, trains tuned LightGBM/XGBoost/Ridge/RF regressors on OOT split, and computes TreeSHAP values.
+* [src/test_model.ipynb](file:///c:/Users/manda/OneDrive/Documents/3rd%20YEAR%20PROJ/Urban%20Heat%20Stress,%20Air%20Pollution%20&%20Excess%20Cardiorespiratory%20Mortality%20Modeling%20Engine/src/test_model.ipynb) — Evaluates residual normality, builds risk decile calibration curves, and simulates counterfactual heatwave/inversion stress scenarios.
+
+```bash
+# Launch Jupyter Notebook interface:
+jupyter notebook
+```
+
+---
+
+#### Option E: Frontline LGU Heat-Health Early Warning System (EWS) Dashboard
+Launch the interactive Streamlit decision-support web application for local government units, disaster managers, and public health officials:
+
 ```bash
 streamlit run src/app.py
 ```
+
+*Access the dashboard locally at `http://localhost:8501`.*
+
+**Dashboard Features:**
+1. **🚨 LGU Heat-Health Early Warning Matrix:** Live environmental monitoring, automatic alert level assignment (Levels 1–4), and actionable municipal response protocols.
+2. **🏙️ Real-Time City Risk Gauges:** City-specific vulnerability profiles, baseline death rates, and weekly predicted excess cardiorespiratory deaths.
+3. **🧪 Counterfactual Scenario Stress Lab:** Dynamic sliders to simulate isolated heatwaves, particulate inversions, or compound extreme multi-hazard events.
+4. **🧠 TreeSHAP Model Explainability Hub:** Interactive global feature importance, beeswarm distributions, and compound synergy interaction plots.
+
+---
+
+### 3. Pipeline Output Artifacts & Verification
+
+After executing the pipeline, generated assets are saved across the following directories:
+
+| Output Category | File Path | Description |
+| :--- | :--- | :--- |
+| **Master Dataset** | `data/processed_cchain_master.csv`<br>`data/processed_cchain_master.parquet` | Fused 10,020 city-week observations (12 cities $\times$ 835 weeks) with 67 engineered features. |
+| **Evaluation Metrics** | `output/model_evaluation_metrics.csv` | Out-of-time (2018–2021) RMSE, MAE, Pearson $r$, Spearman $\rho$, and $R^2$ benchmarks across all endpoints. |
+| **City Disaggregation** | `output/city_disaggregated_metrics.csv` | Granular performance metrics disaggregated across all 12 Philippine metropolitan cities. |
+| **Stress Simulations** | `output/counterfactual_scenario_stress_testing.csv` | Simulated mortality surges across baseline, heatwave, particulate inversion, and compound multi-hazard events. |
+| **Decile Calibration** | `output/model_decile_calibration.csv` | Expected vs. observed mortality rates grouped into 10 risk deciles. |
+| **Diagnostic Report** | `output/comprehensive_model_test_report.json` | Consolidated JSON execution audit, statistical diagnostics, and performance summaries. |
+| **Diagnostic Plots** | `output/figures/*.png` | High-resolution (300 DPI) publication-ready plots (GAM splines, SHAP summaries, residual diagnostics, time series). |
+| **Trained Models** | `output/models/*.joblib` | Serialized LightGBM, XGBoost, Ridge, and pygam models ready for production inference. |
 
 ---
 
 ## 📂 Repository Layout
 
 ```
-proj2/
-├── README.md                          # Comprehensive project documentation
-├── PROJECT_SUMMARY_AND_NOTES.md       # In-depth 4-stage analytics report & LGU framework
+Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine/
+├── README.md                          # Comprehensive project documentation & operational guide
+├── PROJECT_SUMMARY_AND_NOTES.md       # In-depth 4-stage analytics report & LGU action framework
 ├── requirements.txt                   # Pinned dependency environment
 ├── run_pipeline.py                    # Master CLI pipeline orchestrator
-├── build_all_notebooks.py             # Automated Jupyter Notebook generator
 ├── .gitignore                         # Standard git ignore rules
 ├── src/
 │   ├── data_processing.py             # Modular spatial-temporal ETL & feature engineering
@@ -188,9 +282,11 @@ proj2/
 │   ├── test_model.py                  # Model test suite, residual diagnostics & stress tests
 │   ├── test_model.ipynb               # Step-by-step model testing & calibration notebook
 │   └── app.py                         # Streamlit Heat-Health Early Warning System dashboard
+├── tests/
+│   └── test_cchain_engine.py          # Automated unit test suite (15 test cases)
 ├── data/
-│   ├── processed_cchain_master.csv    # 10,020 city-week master dataset
-│   └── processed_cchain_master.parquet# Columnar format for high-speed I/O
+│   ├── processed_cchain_master.csv    # 10,020 city-week master dataset (CSV)
+│   └── processed_cchain_master.parquet# Columnar format for high-speed I/O (Parquet)
 └── output/
     ├── model_evaluation_metrics.csv   # OOT cross-validation benchmarks
     ├── city_disaggregated_metrics.csv # Spatial performance breakdown across 12 cities
