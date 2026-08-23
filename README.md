@@ -1,7 +1,12 @@
 # 🌍 Project CCHAIN: Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine
 ### *Spatial-Temporal AI & Epidemiological Decision-Support Engine for Philippine Metropolitan Resilience*
 
+> **🎓 Academic Attribution:** Developed in partial fulfillment of the course requirements for **Data Mining — Laboratory Activity 1**.  
+> **📊 Data Foundation:** Powered by the **Project CCHAIN** (*Climate Change, Health, and Artificial Intelligence in the Philippines*) multi-modal datasets.
+
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg?logo=python)](https://www.python.org/)
+[![Project CCHAIN](https://img.shields.io/badge/Dataset-Project%20CCHAIN-blueviolet.svg)](https://cchain.ph/)
+[![Data Mining Lab 1](https://img.shields.io/badge/Coursework-Data%20Mining%20Lab%201-orange.svg)]()
 [![LightGBM](https://img.shields.io/badge/LightGBM-4.7.0-brightgreen.svg)](https://lightgbm.readthedocs.io/)
 [![XGBoost](https://img.shields.io/badge/XGBoost-3.4.1-orange.svg)](https://xgboost.readthedocs.io/)
 [![pyGAM](https://img.shields.io/badge/pyGAM-Splines-purple.svg)](https://pygam.readthedocs.io/)
@@ -14,7 +19,7 @@
 
 Rapid urbanization, severe urban heat island (UHI) effects, and climate change in the Philippines have significantly multiplied the frequency of compound environmental hazards—severe ambient thermal stress paired with toxic fine particulate matter ($PM_{2.5}$).
 
-This repository hosts the **Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine** built under **Project CCHAIN** (Climate Change, Health, and Artificial Intelligence in the Philippines). The engine integrates **over 12.8 million daily observations** across **879 barangays** and **12 major Philippine cities** spanning 2006 to 2021, linking atmospheric and air quality parameters with weekly cause-specific mortality records from the Philippine Statistics Authority (PSA).
+This repository houses the complete data mining and predictive modeling architecture developed for **Data Mining Laboratory Activity 1**, utilizing the rich multi-modal repository of **Project CCHAIN** (*Climate Change, Health, and Artificial Intelligence in the Philippines*). The engine integrates **over 12.8 million daily observations** across **879 barangays** and **12 major Philippine cities** spanning 2006 to 2021, linking atmospheric and air quality parameters with weekly cause-specific mortality records from the Philippine Statistics Authority (PSA).
 
 ### 🎯 Key Scientific Questions Addressed:
 1. *How do extreme heat waves and particulate spikes interact non-linearly to drive cardiorespiratory deaths?*

@@ -1,13 +1,18 @@
 # 🌍 Project CCHAIN: Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine
 ## *Comprehensive Technical Report, Methodological Architecture & LGU Heat-Health Action Framework*
 
+> **🎓 Course Requirement Attribution:**  
+> **Course:** Data Mining  
+> **Activity:** Laboratory Activity 1 — End-to-End Predictive Analytics & Spatial-Temporal Feature Engineering Pipeline  
+> **Primary Dataset:** **Project CCHAIN** (*Climate Change, Health, and Artificial Intelligence in the Philippines*) multi-hazard environmental health repository.
+
 ---
 
 ## 📌 Executive Summary
 
 Rapid urbanization, the urban heat island (UHI) effect, and escalating climate change in the Philippines have significantly amplified the frequency and severity of compound environmental hazards—extreme ambient thermal stress combined with fine particulate air pollution. 
 
-This repository houses the **Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine** developed under **Project CCHAIN** (Climate Change, Health, and Artificial Intelligence in the Philippines). The engine ingests 20 years of daily atmospheric, air quality, satellite land cover, relative wealth, and population raster data across **879 barangays** and **12 major Philippine cities**, synchronizing them with 16 years of weekly cause-specific mortality records from the Philippine Statistics Authority (PSA).
+This technical report documents the complete implementation developed for **Data Mining Laboratory Activity 1**, leveraging the multi-modal dataset of **Project CCHAIN** (*Climate Change, Health, and Artificial Intelligence in the Philippines*). The engine ingests 20 years of daily atmospheric, air quality, satellite land cover, relative wealth, and population raster data across **879 barangays** and **12 major Philippine cities**, synchronizing them with 16 years of weekly cause-specific mortality records from the Philippine Statistics Authority (PSA).
 
 The modeling engine implements a comprehensive **4-Stage Analytics Paradigm (Descriptive, Diagnostic, Predictive, and Prescriptive)** to quantify non-linear exposure-response relationships, short-term distributed lag structures (0–14 days), compound hazard synergy ($HI \times PM_{2.5}$), and out-of-time predictive forecasting of weekly cardiorespiratory mortality rates per 100,000 population.
 
@@ -16,36 +21,33 @@ The modeling engine implements a comprehensive **4-Stage Analytics Paradigm (Des
 ## 📂 Repository Structure & Artifacts
 
 ```
-proj2/
-├── requirements.txt                   # Environment dependencies
-├── create_notebook.py                 # Automated Jupyter Notebook generator
+Urban Heat Stress, Air Pollution & Excess Cardiorespiratory Mortality Modeling Engine/
+├── README.md                          # Comprehensive project documentation
+├── PROJECT_SUMMARY_AND_NOTES.md       # 4-stage analytics report & LGU action matrix
+├── requirements.txt                   # Pinned dependency environment
+├── run_pipeline.py                    # Master CLI pipeline orchestrator
+├── .gitignore                         # Standard git ignore rules
 ├── src/
-│   ├── data_processing.py             # Modular spatial-temporal ETL & feature engineering pipeline
-│   ├── data_processing.ipynb          # Step-by-step interactive Jupyter Notebook with narrative markdown
-│   └── train_model.py                 # Dual statistical (GAM) & ML (LightGBM/XGBoost) training & SHAP engine
+│   ├── data_processing.ipynb          # Step-by-step interactive ETL notebook
+│   ├── data_processing.py             # Modular spatial-temporal ETL & feature engineering
+│   ├── train_model.ipynb              # Step-by-step model training & SHAP notebook
+│   ├── train_model.py                 # Statistical (GAM) & ML (LightGBM/XGBoost) training
+│   ├── test_model.ipynb               # Step-by-step model testing & calibration notebook
+│   ├── test_model.py                  # Model test suite, residual diagnostics & stress tests
+│   └── app.py                         # Streamlit Heat-Health Early Warning System dashboard
+├── tests/
+│   └── test_cchain_engine.py          # Automated unit test suite (15 test cases)
 ├── data/
-│   ├── processed_cchain_master.csv    # Merged modeling master table (10,020 rows, 67 columns)
-│   └── processed_cchain_master.parquet# Optimized columnar parquet format
-├── output/
-│   ├── model_evaluation_metrics.csv   # OOT cross-validation benchmarks across models and causes
-│   ├── city_disaggregated_metrics.csv # Spatial performance breakdown across 12 cities
-│   ├── figures/                       # High-resolution publication plots (300 DPI)
-│   │   ├── gam_exposure_response_splines.png
-│   │   ├── shap_feature_importance_bar.png
-│   │   ├── shap_beeswarm_plot.png
-│   │   ├── shap_compound_hazard_dependence.png
-│   │   └── oot_time_series_forecast_comparison.png
-│   └── models/                        # Serialized joblib model artifacts
-│       ├── gam_spline_cardiorespiratory.joblib
-│       ├── lightgbm_rate_cardiorespiratory_per_100k.joblib
-│       ├── lightgbm_rate_ihd_per_100k.joblib
-│       ├── lightgbm_rate_hhd_per_100k.joblib
-│       ├── lightgbm_rate_asthma_per_100k.joblib
-│       ├── xgboost_rate_cardiorespiratory_per_100k.joblib
-│       ├── xgboost_rate_ihd_per_100k.joblib
-│       ├── xgboost_rate_hhd_per_100k.joblib
-│       └── xgboost_rate_asthma_per_100k.joblib
-└── PROJECT_SUMMARY_AND_NOTES.md       # Comprehensive documentation & LGU policy framework
+│   ├── processed_cchain_master.csv    # 10,020 city-week master dataset
+│   └── processed_cchain_master.parquet# Columnar format for high-speed I/O
+└── output/
+    ├── model_evaluation_metrics.csv   # OOT cross-validation benchmarks
+    ├── city_disaggregated_metrics.csv # Spatial performance breakdown across 12 cities
+    ├── counterfactual_scenario_stress_testing.csv # Simulated scenario excess deaths
+    ├── model_decile_calibration.csv   # Decile calibration data
+    ├── comprehensive_model_test_report.json # Consolidated JSON testing report
+    ├── figures/                       # Publication-ready diagnostic plots (300 DPI)
+    └── models/                        # Serialized joblib model artifacts
 ```
 
 ---
