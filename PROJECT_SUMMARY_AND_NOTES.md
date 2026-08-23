@@ -73,18 +73,25 @@ $$\text{Pop}_{b, y} = \text{Pop}_{b, 2020} \times (1 + r_b)^{y - 2020}, \quad \f
 
 ### 3. Built Environment & Vulnerability Indices
 * **Urban Heat Island (UHI) Proxy Ratio:**
-  $$\text{UHI\_Proxy}_c = \frac{\sum_{b \in c} W_{b, 2020} \cdot \text{pct\_area\_builtup}_b}{\left(\sum_{b \in c} W_{b, 2020} \cdot \text{pct\_area\_tree\_cover}_b\right) + 0.01}$$
+
+$$\text{UHI Proxy}_c = \frac{\sum_{b \in c} W_{b, 2020} \cdot \text{Builtup Area Frac}_b}{\left(\sum_{b \in c} W_{b, 2020} \cdot \text{Tree Cover Frac}_b\right) + 0.01}$$
+
 * **Socio-Environmental Vulnerability Index (SEVI):**
-  $$\text{SEVI}_{c, y} = (1 - \text{RWI}_{c, y}) \times \ln(1 + \text{CityPopDensity}_{c, y})$$
+
+$$\text{SEVI}_{c, y} = (1 - \text{RWI}_{c, y}) \times \ln(1 + \text{City Pop Density}_{c, y})$$
+
   *(Where $\text{RWI}_{c, y}$ is the population-weighted Relative Wealth Index, inverted to reflect economic deprivation).*
 
 ### 4. Distributed Lag Structures & Compound Multi-Hazard Interactions
-* **Acute Thermal Burden (0–7 Days / Lag Week 1):** $\text{HeatIndex}_{\text{lag1}} = \text{HeatIndex}_{\text{mean}, w-1}$
-* **Sub-Acute Particulate Inflammation (0–14 Days / Lag Week 1 & 2):** $\text{PM2.5}_{\text{lag1}}, \text{PM2.5}_{\text{lag2}}, \text{PM2.5}_{\text{roll2w}}$
+* **Acute Thermal Burden (0–7 Days / Lag Week 1):** $\text{Heat Index}_{\text{lag1}} = \text{Heat Index}_{\text{mean}, w-1}$
+* **Sub-Acute Particulate Inflammation (0–14 Days / Lag Week 1 & 2):** $\text{PM}_{2.5, \text{lag1}}$, $\text{PM}_{2.5, \text{lag2}}$, $\text{PM}_{2.5, \text{roll2w}}$
 * **Compound Thermal-Pollution Synergy:**
-  $$\text{CompoundRisk}_{\text{HI95}\times\text{PM25}} = \text{HeatIndex}_{95\text{th}, c, w} \times \text{PM2.5}_{\text{mean}, c, w}$$
-  $$\text{CompoundHeatwave}_{\text{Days}\times\text{PM25}} = \text{ExtremeHeatDays}_{\ge 37^\circ\text{C}, c, w} \times \text{PM2.5}_{95\text{th}, c, w}$$
-  $$\text{CompoundVulnerabilityRisk} = \text{CompoundRisk}_{\text{HI95}\times\text{PM25}} \times \text{SEVI}_{c, y}$$
+
+$$\text{Compound Risk}_{\text{HI95} \times \text{PM2.5}} = \text{Heat Index}_{95\text{th}, c, w} \times \text{PM}_{2.5, \text{mean}, c, w}$$
+
+$$\text{Compound Heatwave}_{\text{Days} \times \text{PM2.5}} = \text{Extreme Heat Days}_{\ge 37^\circ\text{C}, c, w} \times \text{PM}_{2.5, 95\text{th}, c, w}$$
+
+$$\text{Compound Vulnerability Risk} = \text{Compound Risk}_{\text{HI95} \times \text{PM2.5}} \times \text{SEVI}_{c, y}$$
 
 ### 5. Cartesian Reindexing & Rate Normalization
 To eliminate selection and reporting bias (weeks with 0 deaths omitted from raw PSA records), a complete Cartesian grid is constructed:
